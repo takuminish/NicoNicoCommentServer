@@ -16,6 +16,10 @@ class CommentsController < ApplicationController
   
   def show
     @comment = Comment.where(is_used: false)
+    render :json => @comment
+    @comment.each do |c| 
+      c.update_attribute(:is_used, true) 
+    end
   end
 
   def comment_params
