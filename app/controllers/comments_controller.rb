@@ -15,11 +15,10 @@ class CommentsController < ApplicationController
   end
   
   def show
-    @comment = Comment.where(is_used: false)
-    render :json => @comment
-    @comment.each do |c| 
-      c.update_attribute(:is_used, true) 
+    unless params["id"].nil?
+      @comment = Comment.where(id: params["id"].to_i..Float::INFINITY).where(is_used: false)
     end
+    render :json => @comment
   end
 
   def comment_params
