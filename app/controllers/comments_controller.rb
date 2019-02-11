@@ -17,6 +17,9 @@ class CommentsController < ApplicationController
   def show
     unless params["id"].nil?
       @comment = Comment.where(id: params["id"].to_i..Float::INFINITY).where(is_used: false)
+      @comment.each do |c|
+        c.update_attribute(:is_used, true)
+      end
     end
     render :json => @comment
   end
