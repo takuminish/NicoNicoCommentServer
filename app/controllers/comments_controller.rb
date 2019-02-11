@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
   
   def show
-    unless params["token"] === ENV["TOKEN"]
+    if params["token"] === ENV["TOKEN"]
       @comment = Comment.where(is_used: false)
       @comment.each do |c|
         c.update_attribute(:is_used, true)
