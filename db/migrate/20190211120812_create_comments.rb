@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.string :text
       t.string :color
       t.string :size
-      t.boolean :is_used, default: false
+      t.boolean :is_used
 
       t.timestamps
     end
