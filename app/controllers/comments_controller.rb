@@ -1,3 +1,4 @@
+# coding: utf-8
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
@@ -6,10 +7,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-
+      flash[:success] = "コメントを送信しました"
     else
-
+      flash[:danger] = "コメントの送信に失敗しました"
     end
+    redirect_to :action => "new"
   end
   
   def show
