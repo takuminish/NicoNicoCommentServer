@@ -1,7 +1,9 @@
 
-<%= form_with :class=>"field", model: @comment, url: comments_new_path do |f| %>
-<%= f.text_field :text ,:class=>"input comments" %>
-<%= f.select :color, ["red","blue"] %>
-<%= f.select :size, [10,30,50] %>
-<%= f.submit "コメント送信" , :class=>"button is-link submit" %>
-<% end %>
+<div class="form-field">
+  <%= form_with :class=>"field", model: @comment, url: comments_new_path do |f| %>
+  <%= f.text_field :text ,:class=>"comments-form" %>
+  <%= f.select :color, ["red","blue"] %>
+  <%= f.select :size, [10,30,50] %>
+  <%= f.submit "コメント送信" , :class=>"submit-button" %>
+  <% end %>
+</div>
