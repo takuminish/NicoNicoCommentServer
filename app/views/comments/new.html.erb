@@ -1,6 +1,7 @@
 
 <div class="form-field">
   <%= form_with :class=>"field", model: @comment, url: comments_new_path do |f| %>
+  <%= f.label "コメント入力" , :class=>"comments-label" %>
   <%= f.text_field :text ,:class=>"comments-form" %>
   <%= f.select :color, ["red","blue"] %>
   <%= f.select :size, [10,30,50] %>
