@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.size = "60"
+    @comment.color= "white"
     if @comment.save
       flash[:success] = "コメントを送信しました"
     else
@@ -26,6 +27,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:text,:color)
+    params.require(:comment).permit(:text)
   end
 end
