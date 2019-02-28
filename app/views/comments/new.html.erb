@@ -2,7 +2,7 @@
 <p>Find me in app/views/comments/new.html.erb</p>
 
 <%= form_with model: @comment, url: comments_new_path do |f| %>
-<%= f.text_field :text %>
+<%= f.text_field :text ,:class=>"input" %>
 <%= f.select :color, ["red","blue"] %>
 <%= f.select :size, [10,30,50] %>
 <%= f.submit("コメント送信") %>
