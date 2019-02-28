@@ -14,7 +14,11 @@
 
   <body>
     <% flash.each do |message_type,message| %>
-      <div class="<%= message_type %>"><%= message %> </div>
+      <% if message_type === "danger" %>
+        <div class="<%= message_type %> notification is-danger"><%= message %> </div>
+      <% elsif message_type === "success" %>
+        <div class="<%= message_type %> notification is-primary"><%= message %> </div>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>
