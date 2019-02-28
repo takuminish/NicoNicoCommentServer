@@ -1,9 +1,7 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
 
-<%= form_with model: @comment, url: comments_new_path do |f| %>
-<%= f.text_field :text ,:class=>"input" %>
+<%= form_with :class=>"field", model: @comment, url: comments_new_path do |f| %>
+<%= f.text_field :text ,:class=>"input comments" %>
 <%= f.select :color, ["red","blue"] %>
 <%= f.select :size, [10,30,50] %>
-<%= f.submit("コメント送信") %>
+<%= f.submit "コメント送信" , :class=>"button is-link submit" %>
 <% end %>
