@@ -17,13 +17,13 @@ class CommentsController < ApplicationController
   end
   
   def show
-
-    @comment = Comment.where(is_used: false)
-    @comment.each do |c|
-      c.update_attribute(:is_used, true)
+    if params["token"] === ENV["TOKEN"]
+      @comment = Comment.where(is_used: false)
+      @comment.each do |c|
+        c.update_attribute(:is_used, true)
+      end
+      render :json => @comment
     end
-
-    render :json => @comment
   end
 
   def comment_params
